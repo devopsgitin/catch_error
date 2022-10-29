@@ -5,7 +5,7 @@ pipeline{
       steps{
         sh '''
           set +x
-          bash file.sh $value
+          bash check.sh $value
         '''
       }
     }
@@ -13,7 +13,7 @@ pipeline{
       steps{
         sh '''
           set +x
-          bash stats.sh $value
+          bash input_stats.sh $value
         '''
       }
     }
