@@ -3,10 +3,12 @@ pipeline{
   stages{
     stage("Check Status"){
       steps{
-        sh '''
+        catchError {
+          sh '''
           set +x
           bash check.sh $value
         '''
+        }
       }
     }
     stage("Status"){
