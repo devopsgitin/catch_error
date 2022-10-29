@@ -3,7 +3,9 @@ pipeline{
   stages{
     stage("Check Status"){
       steps{
-        catchError {
+        catchError(buildResult: 'UNSTABLE', 
+                   message: 'Value is greater than 10', 
+                   stageResult: 'UNSTABLE') {
           sh '''
           set +x
           bash check.sh $value
